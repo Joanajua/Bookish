@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using Bookish.DataAccess;
 using Dapper;
 using Npgsql;
 
@@ -13,11 +15,16 @@ namespace Bookish
     {
         static void Main(string[] args)
         {
-            string connectionString = "Server=127.0.0.1; Port=5432; Database=bookish; User Id=bookish; Password=123";
-            var connection = new NpgsqlConnection(connectionString);
-            connection.Open();
+            var repository = new BookRepository();
 
-            var books = connection.Query<Book>("SELECT * FROM books");
+            
+             
+            foreach (var item in repository.GetBooks())
+            {
+                
+                Console.WriteLine($"Book ID: {item.book_id}, Title: {item.title}, Author: {item.author}, ISBN: {item.isbn}, Total copies: {item.total_copies}");
+
+            }
 
             Console.ReadLine();
         }
