@@ -1,0 +1,92 @@
+-- Table: public.account
+
+-- DROP TABLE public.account;
+
+CREATE TABLE public.account
+(
+    user_id integer NOT NULL DEFAULT nextval('account_user_id_seq'::regclass),
+    username character varying(25) COLLATE pg_catalog."default" NOT NULL,
+    password character varying(25) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT account_pkey PRIMARY KEY (user_id),
+    CONSTRAINT account_username_key UNIQUE (username)
+
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.account
+    OWNER to postgres;
+
+
+
+
+--------------------------------------------------------------------------------------------------------
+-- Table: public.book_copies
+
+-- DROP TABLE public.book_copies;
+
+CREATE TABLE public.book_copies
+(
+    copy_id integer NOT NULL DEFAULT nextval('book_copies_copy_id_seq'::regclass),
+    book_id integer NOT NULL DEFAULT nextval('book_copies_book_id_seq'::regclass),
+    rent_status boolean NOT NULL,
+    due_date date NOT NULL,
+    total_copies integer NOT NULL,
+    user_id integer NOT NULL DEFAULT nextval('book_copies_user_id_seq'::regclass),
+    CONSTRAINT book_copies_pkey PRIMARY KEY (copy_id),
+    CONSTRAINT book_copies FOREIGN KEY (book_id)
+        REFERENCES public.books (book_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID,
+    CONSTRAINT user_renter FOREIGN KEY (user_id)
+        REFERENCES public.account (user_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.book_copies
+    OWNER to postgres;
+
+-- Index: fki_book_copies
+
+-- DROP INDEX public.fki_book_copies;
+
+CREATE INDEX fki_book_copies
+    ON public.book_copies USING btree
+    (book_id)
+    TABLESPACE pg_default;
+
+-- Index: fki_user_renter
+
+-- DROP INDEX public.fki_user_renter;
+
+CREATE INDEX fki_user_renter
+    ON public.book_copies USING btree
+    (user_id)
+    TABLESPACE pg_default;
+	
+	--------------------------------------------------------------------------------
+	
+	
+	-- Table: public.books
+
+-- DROP TABLE public.books;
+
+CREATE TABLE public.books
+(
+    book_id integer NOT NULL DEFAULT nextval('books_book_id_seq'::regclass),
+    title character varying(250) COLLATE pg_catalog."default" NOT NULL,
+    author character varying(250) COLLATE pg_catalog."default" NOT NULL,
+    isbn integer NOT NULL,
+    total_copies integer NOT NULL,
+    CONSTRAINT books_pkey PRIMARY KEY (book_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.books
+    OWNER to postgres;
