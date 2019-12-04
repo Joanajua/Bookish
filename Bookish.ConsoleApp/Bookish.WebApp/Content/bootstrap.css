@@ -1291,10 +1291,12 @@ p {
   margin: 0 0 10px;
 }
 .lead {
-  margin-bottom: 20px;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.4;
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 1.4;
+    text-shadow: 1px 1px #000000;
+    color: #ffffff;
 }
 @media (min-width: 768px) {
   .lead {
@@ -1587,7 +1589,8 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-    background-color: #ffffff
+    background-color: #ffffff;
+    
 }
 @media (min-width: 768px) {
   .container {
@@ -4963,18 +4966,16 @@ a.badge:focus {
     margin-bottom: 30px;
     color: inherit;
     background-color: #ffffff;
-    background-image: url(https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1554741904/shape/mentalfloss/559404-istock-512966920_0.jpg);
-    background-blend-mode:initial;
+    background-image: url(/imgs/head_img.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover
-
+    _webkit-background-size: cover;
+    _moz-background-size: cover;
+    _o-background-size: cover
 }
 .jumbotron h1,
 .jumbotron .h1 {
-  color: inherit;
+  color: #ffffff;
 }
 .jumbotron p {
   margin-bottom: 15px;
@@ -5005,7 +5006,8 @@ a.badge:focus {
   }
   .jumbotron h1,
   .jumbotron .h1 {
-    font-size: 63px;
+      font-size: 80px;
+      
   }
 }
 .thumbnail {

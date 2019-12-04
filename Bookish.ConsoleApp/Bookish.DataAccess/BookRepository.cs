@@ -18,6 +18,8 @@ namespace Bookish.DataAccess
 
             var books = connection.Query<Book>("SELECT * FROM books ORDER BY title ASC").ToList();
             return books;
+
+           
         }
     }
 }

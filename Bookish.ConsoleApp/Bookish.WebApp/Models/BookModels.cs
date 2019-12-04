@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bookish
 {
-    public class Book
+    public class BookModel
     {
        public int book_id { get; set; }
        public string title { get; set; }
