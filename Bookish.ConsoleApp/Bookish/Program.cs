@@ -17,7 +17,6 @@ namespace Bookish
         {
             var repository = new BookRepository();
 
-            
              
             foreach (var item in repository.GetBooks())
             {
