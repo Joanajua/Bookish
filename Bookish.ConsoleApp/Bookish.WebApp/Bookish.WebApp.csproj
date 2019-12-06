@@ -283,10 +283,10 @@
     <Content Include="Views\Home\Index - Copy.cshtml" />
     <Content Include="Views\Book\Books.cshtml" />
     <Content Include="Views\Book\SearchForm.cshtml" />
+    <Content Include="Views\Search\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Search\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

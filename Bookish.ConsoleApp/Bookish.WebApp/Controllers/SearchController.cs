@@ -12,7 +12,7 @@ namespace Bookish.WebApp.Controllers
     {
         // GET: Search
         [HttpPost]
-        public ActionResult Books(SearchModel Form)
+        public ActionResult Search(SearchModel Form)
         
         {
             

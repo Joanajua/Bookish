@@ -1,11 +1,11 @@
 ﻿@model SearchModel
- 
-@using (Html.BeginForm("Books", "Search", FormMethod.Post))
- {
-    
-     <input type="search" name="searchContent" placeholder="Title/Author" />
-     @Html.TextBoxFor(m => m.title)
-     <input type="submit" value="Search" />
 
-    
- }
+@using (Html.BeginForm("Search", "Search", FormMethod.Post))
+{
+
+    //<input type="search" name="searchContent" placeholder="Title/Author" />
+
+
+    <input type="submit" value="Search" />
+    @Html.TextBoxFor(m => m.title)
+}
